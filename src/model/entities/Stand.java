@@ -12,7 +12,7 @@ import java.util.Objects;
  * Representa un stand en la feria.
  * @author edangulo
  */
-public class Stand {
+public class Stand implements Cloneable{
     
     private long id;
     private double price;
@@ -61,5 +61,17 @@ public class Stand {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+    
+     /**
+     * Crea una copia del stand.
+     */
+    @Override
+    public Stand clone() {
+        try {
+            return (Stand) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

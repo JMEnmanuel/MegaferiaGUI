@@ -9,7 +9,7 @@ import java.util.Objects;
  * Clase base para todas las personas del sistema (autores, gerentes, narradores).
  * @author edangulo
  */
-public abstract class Person {
+public abstract class Person implements Cloneable{
     
     protected final long id;
     protected String firstname;
@@ -56,5 +56,18 @@ public abstract class Person {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+    
+    /**
+     * Crea una copia de la persona. 
+     */
+    @Override
+    public Person clone() {
+        try {
+            return (Person) super.clone();
+        } catch (CloneNotSupportedException e) {
+            // En producción puedes lanzar excepción más adecuada
+            throw new RuntimeException(e);
+        }
     }
 }

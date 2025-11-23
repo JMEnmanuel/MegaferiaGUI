@@ -12,7 +12,7 @@ import java.util.Objects;
  * Clase base para todos los tipos de libros.
  * @author edangulo
  */
-public abstract class Book {
+public abstract class Book implements Cloneable{
     
     protected String title;
     protected ArrayList<Author> authors;
@@ -83,5 +83,17 @@ public abstract class Book {
     @Override
     public int hashCode() {
         return Objects.hash(isbn);
+    }
+    
+      /**
+     * Crea una copia del libro.
+     */
+    @Override
+    public Book clone() {
+        try {
+            return (Book) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

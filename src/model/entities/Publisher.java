@@ -13,7 +13,7 @@ import java.util.Objects;
  * Representa una editorial en el sistema.
  * @author edangulo
  */
-public class Publisher {
+public class Publisher implements Cloneable{
     
     private final String nit;
     private String name;
@@ -80,5 +80,17 @@ public class Publisher {
     @Override
     public int hashCode() {
         return Objects.hash(nit);
+    }
+    
+    /**
+     * Crea una copia de la editorial.
+     */
+    @Override
+    public Publisher clone() {
+        try {
+            return (Publisher) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
