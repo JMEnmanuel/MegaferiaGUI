@@ -2,12 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package core;
+package model.entities;
 
+import model.entities.Book;
+import model.entities.Manager;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
- *
+ * Representa una editorial en el sistema.
  * @author edangulo
  */
 public class Publisher {
@@ -58,4 +61,24 @@ public class Publisher {
         this.stands.add(stand);
     }
     
+    /**
+     * Compara editoriales por NIT.
+     * IMPORTANTE: Esto arregla el bug en Author.getPublisherQuantity()
+     * donde contains() no funcionaba correctamente.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Publisher publisher = (Publisher) o;
+        return nit.equals(publisher.nit);
+    }
+
+    /**
+     * Hash basado en NIT.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(nit);
+    }
 }

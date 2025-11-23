@@ -2,10 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package core;
+package model.entities;
+import java.util.Objects;
 
 /**
- *
+ * Clase base para todas las personas del sistema (autores, gerentes, narradores).
  * @author edangulo
  */
 public abstract class Person {
@@ -36,4 +37,24 @@ public abstract class Person {
         return firstname + " " + lastname;
     }
     
+    /**
+     * Compara dos personas por su ID.
+     * Agregado para que contains() y otras operaciones funcionen correctamente.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return id == person.id;
+    }
+
+    /**
+     * Genera hash basado en el ID.
+     * Necesario para usar Person en HashMap y HashSet.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

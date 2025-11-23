@@ -2,12 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package core;
+package model.entities;
 
+import model.entities.Author;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
- *
+ * Clase base para todos los tipos de libros.
  * @author edangulo
  */
 public abstract class Book {
@@ -63,4 +65,23 @@ public abstract class Book {
         return publisher;
     }
     
+    /**
+     * Compara libros por ISBN.
+     * Dos libros con el mismo ISBN son el mismo libro.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return isbn.equals(book.isbn);
+    }
+
+    /**
+     * Hash basado en ISBN para uso en colecciones.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(isbn);
+    }
 }
