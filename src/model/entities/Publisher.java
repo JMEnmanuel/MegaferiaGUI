@@ -4,8 +4,7 @@
  */
 package model.entities;
 
-import model.entities.Book;
-import model.entities.Manager;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -30,7 +29,7 @@ public class Publisher implements Cloneable{
         this.books = new ArrayList<>();
         this.stands = new ArrayList<>();
         
-        this.manager.setPublisher(this);
+      
     }
 
     public String getNit() {
@@ -60,13 +59,17 @@ public class Publisher implements Cloneable{
     public void addStand(Stand stand) {
         this.stands.add(stand);
     }
+
+    public ArrayList<Stand> getStands() {
+        return stands;
+    }
     
     /**
      * Compara editoriales por NIT.
      * IMPORTANTE: Esto arregla el bug en Author.getPublisherQuantity()
      * donde contains() no funcionaba correctamente.
      */
-    @Override
+    
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -77,7 +80,7 @@ public class Publisher implements Cloneable{
     /**
      * Hash basado en NIT.
      */
-    @Override
+    
     public int hashCode() {
         return Objects.hash(nit);
     }
@@ -85,7 +88,7 @@ public class Publisher implements Cloneable{
     /**
      * Crea una copia de la editorial.
      */
-    @Override
+  
     public Publisher clone() {
         try {
             return (Publisher) super.clone();

@@ -4,8 +4,6 @@
  */
 package model.entities;
 
-import model.entities.Book;
-import model.entities.Author;
 import java.util.ArrayList;
 
 /**

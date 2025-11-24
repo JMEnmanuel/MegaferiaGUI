@@ -4,9 +4,7 @@
  */
 package model.entities;
 
-import model.entities.Book;
-import model.entities.Narrator;
-import model.entities.Author;
+
 import java.util.ArrayList;
 
 /**
@@ -23,7 +21,7 @@ public class Audiobook extends Book {
         this.duration = duration;
         this.narrador = narrator;
         
-        this.narrador.addBook(this);
+        
     }
 
     public int getDuration() {

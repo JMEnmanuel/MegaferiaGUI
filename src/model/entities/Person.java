@@ -41,7 +41,7 @@ public abstract class Person implements Cloneable{
      * Compara dos personas por su ID.
      * Agregado para que contains() y otras operaciones funcionen correctamente.
      */
-    @Override
+    
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -53,7 +53,7 @@ public abstract class Person implements Cloneable{
      * Genera hash basado en el ID.
      * Necesario para usar Person en HashMap y HashSet.
      */
-    @Override
+    
     public int hashCode() {
         return Objects.hash(id);
     }
@@ -61,7 +61,7 @@ public abstract class Person implements Cloneable{
     /**
      * Crea una copia de la persona. 
      */
-    @Override
+    
     public Person clone() {
         try {
             return (Person) super.clone();

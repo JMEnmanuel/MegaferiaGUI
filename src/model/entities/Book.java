@@ -4,7 +4,7 @@
  */
 package model.entities;
 
-import model.entities.Author;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 public abstract class Book implements Cloneable{
     
-    protected String title;
+  protected String title;
     protected ArrayList<Author> authors;
     protected final String isbn;
     protected String genre;
@@ -31,10 +31,7 @@ public abstract class Book implements Cloneable{
         this.value = value;
         this.publisher = publisher;
         
-        for (Author autor : this.authors) {
-            autor.addBook(this);
-        }
-        this.publisher.addBook(this);
+      
     }
 
     public String getTitle() {
@@ -69,7 +66,7 @@ public abstract class Book implements Cloneable{
      * Compara libros por ISBN.
      * Dos libros con el mismo ISBN son el mismo libro.
      */
-    @Override
+    
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -80,7 +77,7 @@ public abstract class Book implements Cloneable{
     /**
      * Hash basado en ISBN para uso en colecciones.
      */
-    @Override
+   
     public int hashCode() {
         return Objects.hash(isbn);
     }
@@ -88,7 +85,7 @@ public abstract class Book implements Cloneable{
       /**
      * Crea una copia del libro.
      */
-    @Override
+  
     public Book clone() {
         try {
             return (Book) super.clone();

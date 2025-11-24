@@ -4,7 +4,7 @@
  */
 package model.entities;
 
-import model.entities.Person;
+
 
 /**
  *

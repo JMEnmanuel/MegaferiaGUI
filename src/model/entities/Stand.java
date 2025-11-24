@@ -4,7 +4,7 @@
  */
 package model.entities;
 
-import model.entities.Publisher;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -47,7 +47,7 @@ public class Stand implements Cloneable{
     /**
      * Compara stands por ID.
      */
-    @Override
+   
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -58,7 +58,7 @@ public class Stand implements Cloneable{
     /**
      * Hash basado en ID.
      */
-    @Override
+   
     public int hashCode() {
         return Objects.hash(id);
     }
@@ -66,7 +66,7 @@ public class Stand implements Cloneable{
      /**
      * Crea una copia del stand.
      */
-    @Override
+    
     public Stand clone() {
         try {
             return (Stand) super.clone();
